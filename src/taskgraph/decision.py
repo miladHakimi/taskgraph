@@ -228,7 +228,7 @@ def get_decision_parameters(graph_config, options):
     # string "DONTBUILD" and this is an on-push decision task, then use the
     # special 'nothing' target task method.
     if "DONTBUILD" in commit_message and (
-        options["tasks_for"] in ("hg-push", "github-push")
+        options["tasks_for"] == "hg-push" or options["tasks_for"] == "github-push"
     ):
         parameters["target_tasks_method"] = "nothing"
 
